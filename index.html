@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Farm</title>
+    <link rel="stylesheet" href="./src/style/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Syne:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+  </head>
+  <body class="static bg-black">
+    <!--Header-->
+    <header class="bg-black" x-data="{ isOpen: false }">
+      <div
+        x-data="{ open: false }"
+        class="mx-auto flex max-w-screen-xl flex-col px-4 md:flex-row md:items-center md:justify-between md:px-6 lg:px-8"
+      >
+        <div class="flex flex-row items-center justify-between p-8">
+          <a href="#" class="h-16 w-36">
+            <img src="/src/img/aiLogo.png" alt="" />
+          </a>
+          <button
+            class="focus:shadow-outline rounded-lg text-white focus:outline-none md:hidden"
+            @click="open = !open"
+          >
+            <svg fill="currentColor" viewBox="0 0 20 20" class="h-6 w-6">
+              <path
+                x-show="!open"
+                fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+                clip-rule="evenodd"
+              ></path>
+              <path
+                x-show="open"
+                fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <!--Navbar-->
+        <nav
+          :class="{'flex': open, 'hidden': !open}"
+          class="hidden flex-grow flex-col pb-4 md:flex md:flex-row md:justify-end md:pb-0 items-center"
+        >
+          <a
+            class="focus:shadow-outline md:text-md mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 hover:text-slate-50 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
+            href="#about"
+            >About AI</a
+          >
+          <a
+            class="focus:shadow-outline md::text-md mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 hover:text-slate-50 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
+            href="#video"
+            >Video</a
+          >
+          <a
+            class="focus:shadow-outline md::text-md mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 hover:text-slate-50 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
+            href="#install"
+            >Install</a
+          >
+          <a
+            class="focus:shadow-outline md:text-md mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 hover:text-slate-50 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
+            href="#platforms"
+            >Platforms</a
+          >
+          <a
+            class="focus:shadow-outline md::text-md mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 hover:text-slate-50 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
+            href="#products"
+            >Our Products</a
+          >
+          <a
+            class="focus:shadow-outline md::text-md mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 hover:text-slate-50 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
+            href="#contacts"
+            >Contacts</a
+          >
+          <div class="flex flex-row">
+            <a
+              class="focus:shadow-outline md::text-md mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 hover:text-slate-50 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
+              href="cn_index.html"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                role="img"
+                width="3em"
+                height="3em"
+                class="h-8 w-8"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 64 64"
+              >
+                <circle cx="32" cy="32" r="30" fill="#ed4c5c" />
+                <path
+                  fill="#ffe62e"
+                  d="m22 28.4l8 5.6l-3-9.2l8-5.8h-9.9L22 10l-3 9H9l8 5.8l-3 9.2zm13.3 6.9l-2.3.5l2.2.9V39l1.5-1.7l2.2.8l-1.3-1.9l1.4-1.8l-2.3.5l-1.4-1.9zm3.4-6.8L37 30l2.3-.2l1 2.2l.4-2.3l2.3-.2l-2-1.2l.5-2.3l-1.7 1.5l-2-1.2zm.6-7.8L40 23l.7-2.2H43l-1.8-1.4l.7-2.3l-1.9 1.4l-1.8-1.5l.7 2.3l-1.9 1.3zm-4-8V15l1.4-1.9l2.3.5l-1.4-1.8l1.3-1.9l-2.2.9L35.2 9v2.3l-2.2.9z"
+                />
+              </svg>
+            </a>
+            <a
+              class="focus:shadow-outline md::text-md mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 hover:text-slate-50 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
+              href="jp_index.html"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                role="img"
+                width="3em"
+                height="3em"
+                class="h-8 w-8"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 64 64"
+              >
+                <circle cx="32" cy="32" r="30" fill="#f5f5f5" />
+                <circle cx="32" cy="32" r="12" fill="#ed4c5c" />
+              </svg>
+            </a>
+            <a
+              class="focus:shadow-outline md::text-md mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 hover:text-slate-50 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
+              href="kr_index.html"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                role="img"
+                width="3em"
+                height="3em"
+                class="h-8 w-8"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 64 64"
+              >
+                <circle cx="32" cy="32" r="30" fill="#f5f5f5" />
+                <path
+                  fill="#ed4c5c"
+                  d="M23.4 33.7c2.8 1.9 6.7 1.1 8.6-1.7c1.9-2.8 5.7-3.6 8.6-1.7c2.7 1.8 3.5 5.3 2 8c3.3-5.6 1.8-12.9-3.8-16.6c-5.7-3.8-13.4-2.3-17.2 3.4c-.1.2-.2.4-.3.5c-1.4 2.9-.5 6.3 2.1 8.1"
+                />
+                <path
+                  fill="#003478"
+                  d="M42.3 38.9c.1-.2.2-.4.3-.5c-.1.1-.2.3-.3.5"
+                />
+                <path
+                  fill="#428bc1"
+                  d="M40.6 30.3c-2.8-1.9-6.7-1.1-8.6 1.7c-1.9 2.8-5.7 3.6-8.6 1.7c-2.7-1.8-3.5-5.3-2-8c-3.4 5.6-1.8 12.9 3.8 16.6c5.7 3.8 13.4 2.3 17.2-3.4c.1-.2.2-.4.3-.5c1.4-2.9.5-6.3-2.1-8.1"
+                />
+                <path
+                  fill="#3e4347"
+                  d="M7.8 23.3L14.7 13l-.7-.5l-.7-.4l-6.9 10.3l.7.4zm1.9 1.3l.7.4l6.8-10.3l-.6-.4l-.7-.5L9 24.1zm8.7-9.1l-6.8 10.3l.7.5l.7.4l6.8-10.3l-.7-.4zm30.1 27l.7.5l3.2-4.8l-.7-.5l-.7-.4l-3.2 4.8zm7.7-1.8L53 45.5l.7.5l.7.4l3.2-4.8l-.7-.4zm-4.4 4l3.2-4.8l-.7-.5l-.7-.4l-3.2 4.8l.7.4zm-3.7-1.5l-.7-.4l-3.2 4.8l.7.4l.7.5l3.2-4.8zm2.5 1.7l-.6-.4l-3.2 4.8l.6.4l.7.5l3.2-4.8zm1.9 1.3L49.3 51l.7.5l.7.4l3.2-4.8l-.7-.5zm-45.4-5l-.7.4l6.9 10.3l.7-.4l.7-.5l-6.9-10.3zm6.3 3.7l-.7.5l3.2 4.8l.7-.5l.6-.4l-3.2-4.8zm-1.1-7.2l-.7.5l6.8 10.3l.7-.5l.7-.4L13 37.3zM9 39.9l3.2 4.8l.7-.5l.7-.4l-3.2-4.8l-.7.4zm44.2-22.5l.7-.5l-3.2-4.8l-.7.4l-.7.5l3.2 4.8zm-5.1 3.4l.7-.5l-3.2-4.8l-.7.5l-.7.4l3.2 4.8zm4.9-2.3l3.2 4.8l.7-.5l.7-.4l-3.2-4.8l-.7.4zm1.3 6.1l.7-.5l-6.9-10.3l-.7.5l-.6.4L53.6 25zm-2.6 1.7l.7-.5l-3.2-4.8l-.7.5l-.7.4l3.2 4.8z"
+                />
+              </svg>
+            </a>
+          </div>
+        </nav>
+      </div>
+
+      <section class="relative bg-black">
+        <div class="js-show-on-scroll mx-auto max-w-5xl px-0 py-16">
+          <div class="keet-row items-center md:flex md:space-x-6">
+            <div class="delay-1500 md:w-1/2">
+              <h1
+                class="title text-center text-3xl font-bold text-white md:text-left md:text-5xl"
+              >
+                Improve your poker experience with AI FARM
+              </h1>
+              <p class="mt-4 text-center text-gray-300 md:text-left">
+                BOT based on artificial intelligence
+              </p>
+              <div class="mt-8 flex justify-center md:justify-start">
+                <a
+                  href="#about"
+                  class="mr-2 block flex w-40 items-center justify-center rounded-sm border border-sky-500 py-4 px-6 font-bold text-sky-500 hover:bg-sky-500 hover:text-slate-50"
+                >
+                  More
+                </a>
+                <a
+                  href="#contacts"
+                  class="ml-2 block flex w-40 items-center justify-center rounded-sm border border-purple-800 py-4 px-6 font-bold text-purple-500 hover:border-purple-900 hover:bg-purple-900 hover:text-slate-50"
+                >
+                  Contacts
+                </a>
+              </div>
+            </div>
+
+            <div class="mt-8 md:mt-0 md:w-1/2">
+              <div class="flex items-center justify-center">
+                <div class="max-w-md">
+                  <img
+                    class="w-full object-cover object-center"
+                    style="height: 600px"
+                    src="/src/img/bot.png"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <!--Hero About AI-->
+    <section class="bg-black" id="about">
+      <div class="mx-auto my-32 max-w-5xl px-6 py-16">
+        <div
+          data-animate-type="motion-safe:animate-fadeIn"
+          class="js-show-on-scroll flex-col rounded-md bg-zinc-900 px-6 py-8 text-center shadow-md shadow-teal-300"
+        >
+          <h2 class="title text-3xl font-extrabold text-slate-50 md:text-5xl">
+            Don’t play Yourself, AI Will Do It
+          </h2>
+          <p class="mt-6 block text-xl text-teal-200 md:px-32">
+            AI FARM is an automatic poker AI<br />Software Uses Artificial
+            Intelligence Algorithms to Analyze Player and Online Poker Matches
+            and Learn to Develop Best Card Strategies for Poker Machines
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div
+            class="js-show-on-scroll overflow-hidden rounded-md bg-zinc-900 px-6 py-8 opacity-0 shadow-md shadow-sky-600"
+          >
+            <h2
+              class="title animate-pulse text-3xl font-semibold uppercase"
+              style="
+                color: #fff;
+                text-shadow: 0 0 5px rgb(137, 137, 137),
+                  0 0 10px rgb(255, 255, 255), 0 0 20px rgb(0, 4, 255),
+                  0 0 30px rgb(0, 4, 255), 0 0 40px rgb(0, 81, 255);
+              "
+            >
+              Safe
+            </h2>
+            <p class="mt-4 max-w-md text-slate-50">
+              Our AI is completely safe to use. We use advanced algorithms to
+              avoid any detection and account bans
+            </p>
+          </div>
+
+          <div
+            class="js-show-on-scroll overflow-hidden rounded-md bg-zinc-900 px-6 py-8 shadow-md shadow-amber-500"
+          >
+            <h2
+              class="title animate-pulse text-3xl font-semibold uppercase"
+              style="
+                color: #fff;
+                text-shadow: 0 0 5px rgb(137, 137, 137),
+                  0 0 10px rgb(255, 255, 255), 0 0 20px rgb(251, 255, 0),
+                  0 0 30px rgb(251, 255, 0), 0 0 40px rgb(255, 208, 0);
+              "
+            >
+              Growth
+            </h2>
+            <p class="mt-4 max-w-md text-slate-50">
+              With our software you can expand your farm up to 1000 devices in
+              just one admin panel. Upgrade, install, and manage all your phones
+              in one click
+            </p>
+          </div>
+
+          <div
+            class="js-show-on-scroll overflow-hidden rounded-md bg-zinc-900 px-6 py-8 shadow-md shadow-pink-500"
+          >
+            <h2
+              class="title animate-pulse text-3xl font-semibold uppercase"
+              style="
+                color: #fff;
+                text-shadow: 0 0 5px rgb(137, 137, 137),
+                  0 0 10px rgba(255, 255, 255, 0.406), 0 0 20px rgb(247, 0, 255),
+                  0 0 20px rgb(247, 0, 255), 0 0 40px rgb(255, 0, 140);
+              "
+            >
+              Easy
+            </h2>
+            <p class="mt-4 max-w-md text-slate-50">
+              Our bot does not require any other programs to run. Just install
+              the software and enjoy the game
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Game Demonstration-->
+    <section
+      class="bg-cover bg-fixed"
+      style="
+        background-image: url('https://images.unsplash.com/photo-1561034646-e37eb9c48abd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
+        height: auto;
+      "
+      id="video"
+    >
+      <div class="mx-auto max-w-5xl px-6 py-16">
+        <div class="flex-col text-center">
+          <h2 class="title text-3xl font-extrabold text-slate-50 md:text-5xl">
+            Game Demonstration
+          </h2>
+        </div>
+
+        <div class="aspect-w-16 aspect-h-9 mt-8 rounded-md">
+          <video
+            class="rounded-lg"
+            controls
+            preload="none"
+            poster="src/img/poster.png"
+          >
+            <source src="/src/video/english.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!--How to Install-->
+    <section class="bg-black" id="install">
+      <div class="container mx-auto my-32 max-w-5xl px-6 py-10">
+        <h1
+          class="title text-center text-3xl font-extrabold capitalize text-slate-50 md:text-5xl"
+        >
+          How to Install
+        </h1>
+        <div
+          class="js-show-on-scroll mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-12 xl:grid-cols-3 xl:gap-12"
+        >
+          <div
+            class="space-y-3 rounded-xl border-2 border-blue-400 bg-zinc-900 p-8"
+          >
+            <span class="inline-block text-blue-500">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                role="img"
+                width="2em"
+                height="2em"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  fill="#0088FF"
+                  d="M267.206 8.765c-130.1 0-235.566 105.594-235.566 235.851c0 30.486 5.778 59.62 16.297 86.367L8.015 461.423a12.606 12.606 0 0 0-.757 2.439l-.052.138h.03c-.729 4 .302 8.081 3.214 11.183c2.909 3.101 6.996 4.409 10.915 3.924a.114.114 0 0 0 0 .027l.165-.027c.865-.12 1.719-.314 2.55-.609l124.823-29.9c34.767 20.256 75.178 31.867 118.301 31.867c130.1 0 235.566-105.594 235.566-235.85S397.305 8.765 267.206 8.765z"
+                />
+              </svg>
+            </span>
+
+            <p
+              class="text-2xl font-semibold capitalize text-slate-50 dark:text-white"
+            >
+              Contact with support manager
+            </p>
+          </div>
+
+          <div
+            class="space-y-3 rounded-xl border-2 border-orange-400 bg-zinc-900 p-8"
+          >
+            <span class="inline-block">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                role="img"
+                width="2em"
+                height="2em"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 1200 1200"
+              >
+                <path
+                  fill="#f29d38"
+                  d="M600 0C268.63 0 0 268.63 0 600s268.63 600 600 600c331.369 0 600-268.631 600-600C1200 268.63 931.369 0 600 0zm0 1069.565c-259.37 0-469.565-210.261-469.565-469.565S340.63 130.435 600 130.435c259.369 0 469.565 210.261 469.565 469.565S859.369 1069.565 600 1069.565zm117.392-720.652H482.608v266.739H335.87L600 864.13l264.13-248.478H717.391l.001-266.739z"
+                />
+              </svg>
+            </span>
+
+            <p class="text-2xl font-semibold capitalize text-slate-50">
+              Download AI FARM
+            </p>
+          </div>
+
+          <div
+            class="space-y-3 rounded-xl border-2 border-pink-500 bg-zinc-900 p-8"
+          >
+            <span class="inline-block">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                role="img"
+                width="2em"
+                height="2em"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  fill="#e93ef6"
+                  d="M202.2 200.8a103.8 103.8 0 0 0 0-145.6a2.3 2.3 0 0 0-.7-.7a2.3 2.3 0 0 0-.7-.7a103.8 103.8 0 0 0-145.6 0a2.3 2.3 0 0 0-.7.7a2.3 2.3 0 0 0-.7.7a103.8 103.8 0 0 0 0 145.6l.7.7a2.3 2.3 0 0 0 .7.7a103.8 103.8 0 0 0 145.6 0a2.3 2.3 0 0 0 .7-.7a2.3 2.3 0 0 0 .7-.7ZM40.4 136h24.1a63.6 63.6 0 0 0 13 31.2l-17.1 17.1a87.5 87.5 0 0 1-20-48.3Zm20-64.3l17.1 17.1a63.6 63.6 0 0 0-13 31.2H40.4a87.5 87.5 0 0 1 20-48.3ZM215.6 120h-24.1a63.6 63.6 0 0 0-13-31.2l17.1-17.1a87.5 87.5 0 0 1 20 48.3ZM128 176a48 48 0 1 1 48-48a48 48 0 0 1-48 48Zm39.2-98.5a63.6 63.6 0 0 0-31.2-13V40.4a87.5 87.5 0 0 1 48.3 20Zm-47.2-13a63.6 63.6 0 0 0-31.2 13L71.7 60.4a87.5 87.5 0 0 1 48.3-20Zm-31.2 114a63.6 63.6 0 0 0 31.2 13v24.1a87.5 87.5 0 0 1-48.3-20Zm47.2 13a63.6 63.6 0 0 0 31.2-13l17.1 17.1a87.5 87.5 0 0 1-48.3 20Zm42.5-24.3a63.6 63.6 0 0 0 13-31.2h24.1a87.5 87.5 0 0 1-20 48.3Z"
+                />
+              </svg>
+            </span>
+
+            <p class="text-2xl font-semibold capitalize text-slate-50">
+              Play and Win
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Rooms-->
+    <section class="bg-black" id="platforms">
+      <div class="mx-auto my-32 max-w-5xl px-6 py-16 text-center">
+        <h2 class="title text-3xl font-semibold text-slate-50 md:text-5xl">
+          Rooms
+        </h2>
+        <div
+          class="mt-6 grid grid-cols-2 items-center justify-center gap-8 lg:grid-cols-4"
+        >
+          <div>
+            <img
+              class="js-show-on-scroll h-52 w-60 rounded-md object-fill object-center shadow"
+              src="./src/img/hhpoker.png"
+            />
+          </div>
+
+          <div>
+            <img
+              class="js-show-on-scroll h-52 w-60 rounded-md object-fill object-center shadow"
+              src="./src/img/wepoker.png"
+            />
+          </div>
+
+          <div>
+            <img
+              class="js-show-on-scroll h-60 w-60 rounded-md object-fill object-center shadow md:h-52"
+              src="./src/img/xpoker.png"
+            />
+          </div>
+
+          <div>
+            <img
+              class="js-show-on-scroll rounded-md object-cover object-center shadow"
+              src="./src/img/kkPoker.png"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Price List-->
+    <section
+      class="bg-fixed object-cover object-center"
+      style="
+        background-image: url('https://images.unsplash.com/photo-1561034646-e37eb9c48abd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
+      "
+    >
+      <div class="mx-auto my-32 max-w-5xl px-6 py-32">
+        <div class="items-center justify-around lg:flex">
+          <div class="w-full lg:w-1/2">
+            <h1
+              role="heading"
+              class="title mt-3 text-center text-3xl font-bold leading-10 text-slate-50 md:text-5xl"
+            >
+              Download <br />Price List
+            </h1>
+          </div>
+          <div
+            class="relative mt-12 w-full md:px-8 lg:mt-0 lg:w-7/12 xl:w-1/2"
+            role="list"
+          >
+            <div
+              role="listitem"
+              class="relative z-30 cursor-pointer rounded-lg bg-zinc-900 p-8 shadow"
+            >
+              <div class="items-center justify-between md:flex">
+                <p
+                  class="text-2xl font-semibold uppercase leading-6 text-slate-50 hover:text-emerald-300"
+                >
+                  WE Poker
+                </p>
+              </div>
+            </div>
+            <a href="./src/files/HH_Poker.png" download="HH Poker Price List">
+              <div
+                role="listitem"
+                class="relative z-30 mt-3 flex cursor-pointer rounded-lg bg-zinc-900 shadow"
+              >
+                <div class="w-full p-8">
+                  <div class="items-center justify-between md:flex">
+                    <p
+                      class="text-2xl font-semibold uppercase leading-6 text-slate-50 hover:text-indigo-900"
+                    >
+                      HH Poker
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <div
+              role="listitem"
+              class="relative z-30 mt-3 cursor-pointer rounded-lg bg-zinc-900 p-8 shadow"
+            >
+              <div class="items-center justify-between md:flex">
+                <p
+                  class="text-2xl font-semibold uppercase leading-6 text-slate-50 hover:text-sky-600"
+                >
+                  X-Poker
+                </p>
+              </div>
+            </div>
+            <div
+              role="listitem"
+              class="relative z-30 mt-3 cursor-pointer rounded-lg bg-zinc-900 p-8 shadow"
+            >
+              <div class="items-center justify-between md:flex">
+                <p
+                  class="text-2xl font-semibold uppercase leading-6 text-slate-50 hover:text-green-800"
+                >
+                  KK Poker
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Products-->
+    <section class="flex items-center justify-center bg-black" id="products">
+      <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-4">
+        <h2
+          class="title text-center text-3xl font-semibold text-slate-50 md:text-5xl"
+        >
+          Products
+        </h2>
+        <div class="grid grid-cols-2 gap-4 py-8 md:grid-cols-2">
+          <a href="https://pokerbotai.com" target="_blank">
+            <div
+              class="js-show-on-scroll col-span-1 flex items-center justify-center p-6 md:col-span-2 lg:col-span-1"
+            >
+              <img src="./src/img/dev1.svg" alt="" />
+            </div>
+          </a>
+          <div
+            class="js-show-on-scroll col-span-1 flex items-center justify-center p-6 md:col-span-2 lg:col-span-1"
+          >
+            <img src="./src/img/dev2.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Contacts-->
+    <section
+      class="relative mt-20 bg-fixed"
+      id="contacts"
+      style="
+        background-image: url('https://images.unsplash.com/photo-1561034646-e37eb9c48abd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
+      "
+    >
+      <section>
+        <div class="flex items-center justify-center py-24">
+          <div
+            class="flex max-w-5xl items-center justify-center rounded-md bg-zinc-900 px-10 pt-10 pb-12"
+          >
+            <div class="glassmorph-container">
+              <a href="https://t.me/thepok3ragent">
+                <div class="flex flex-row items-center space-x-4 py-6">
+                  <div class="text-white">
+                    <img
+                      class="h-16 w-16"
+                      src="./src/img/telegram.png"
+                      alt=""
+                    />
+                  </div>
+                  <div
+                    class="font-montserrat text-3xl font-semibold text-white"
+                  >
+                    @thepok3ragent
+                  </div>
+                </div>
+              </a>
+
+              <a href="#">
+                <div class="flex flex-row items-center space-x-4">
+                  <div class="text-white">
+                    <img class="h-16 w-16" src="./src/img/wechat.png" alt="" />
+                  </div>
+                  <div
+                    class="font-montserrat text-3xl font-semibold text-white hover:inline-block"
+                  >
+                    SANBRAZI
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!--Bubble Button-->
+    <div class="mt-20 flex flex-shrink-0 justify-end p-4">
+      <a href="#" class="group block flex-shrink-0">
+        <div class="flex items-center">
+          <div
+            @click.away="open = false"
+            class="fixed bottom-8 right-8"
+            x-data="{ open: false }"
+          >
+            <div class="relative">
+              <div
+                x-show="open"
+                x-transition:enter="transition ease-out duration-100"
+                x-transition:enter-start="transform opacity-0 scale-95"
+                x-transition:enter-end="transform opacity-100 scale-100"
+                x-transition:leave="transition ease-in duration-75"
+                x-transition:leave-start="transform opacity-100 scale-100"
+                x-transition:leave-end="transform opacity-0 scale-95"
+                class="absolute bottom-0 right-0 mt-2 mr-8 w-56 origin-top-right rounded-md shadow-lg"
+              >
+                <div class="shadow-xs relative rounded-md bg-zinc-900 py-1">
+                  <a
+                    href="https://t.me/thepok3ragent"
+                    class="block px-4 py-2 text-sm text-gray-700 transition duration-150 ease-in-out hover:bg-zinc-800"
+                  >
+                    <div class="flex flex-row items-center space-x-2">
+                      <div class="text-white">
+                        <img
+                          class="h-10 w-10"
+                          src="./src/img/telegram.png"
+                          alt=""
+                        />
+                      </div>
+                      <div
+                        class="font-montserrat text-sm font-semibold text-white"
+                      >
+                        @thepok3ragent
+                      </div>
+                    </div></a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 transition duration-150 ease-in-out hover:bg-zinc-800"
+                  >
+                    <div class="flex flex-row items-center space-x-2">
+                      <div class="text-white">
+                        <img
+                          class="h-10 w-10"
+                          src="./src/img/wechat.png"
+                          alt=""
+                        />
+                      </div>
+                      <div
+                        class="font-montserrat text-sm font-semibold text-white"
+                      >
+                        SANBRAZI
+                      </div>
+                    </div></a
+                  >
+                </div>
+              </div>
+            </div>
+            <div>
+              <button
+                @click="open = !open"
+                class="focus:shadow-solid flex max-w-xs items-center justify-center rounded-full border-2 text-sm text-white transition duration-150 ease-in-out focus:outline-none"
+              >
+                <img class="w-12" src="./src/img/buuble.png" alt="" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      const callback = function (entries) {
+        entries.forEach((entry) => {
+          console.log(entry);
+
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-fadeIn");
+          } else {
+            entry.target.classList.remove("animate-fadeIn");
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(callback);
+
+      const targets = document.querySelectorAll(".js-show-on-scroll");
+      targets.forEach(function (target) {
+        target.classList.add("opacity-0");
+        observer.observe(target);
+      });
+    </script>
+  </body>
+</html>
