@@ -22,14 +22,14 @@
     <header class="bg-black" x-data="{ isOpen: false }">
       <div
         x-data="{ open: false }"
-        class="mx-auto flex max-w-screen-xl lg:max-w-screen-2xl flex-col px-4 md:flex-row md:items-center md:justify-around md:px-6 lg:px-8"
+        class="mx-auto flex max-w-screen-xl lg:max-w-screen-2xl flex-col px-4 xl:flex-row xl:items-center xl:justify-around xl:px-6 lg:px-8"
       >
         <div class="flex flex-row items-center justify-between p-8">
           <a href="#" class="h-16 w-36">
             <img src="./src/img/aiLogo.png" alt="" />
           </a>
           <button
-            class="focus:shadow-outline rounded-lg text-white focus:outline-none md:hidden"
+            class="focus:shadow-outline rounded-lg text-white focus:outline-none xl:hidden"
             @click="open = !open"
           >
             <svg fill="currentColor" viewBox="0 0 20 20" class="h-6 w-6">
@@ -50,7 +50,7 @@
         </div>
         <nav
           :class="{'flex': open, 'hidden': !open}"
-          class="hidden flex-grow flex-col pb-4 md:flex md:flex-row md:justify-end md:pb-0 items-center"
+          class="hidden flex-grow flex-col pb-4 xl:flex xl:flex-row xl:justify-end xl:pb-0 items-center"
         >
           <a
             class="focus:shadow-outline md:text-md mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 hover:text-slate-50 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
@@ -429,21 +429,21 @@
         >
           <div>
             <img
-              class="js-show-on-scroll h-52 w-60 rounded-md object-fill object-center shadow"
+              class="js-show-on-scroll rounded-md object-fill object-center shadow"
               src="./src/img/hhpoker.png"
             />
           </div>
 
           <div>
             <img
-              class="js-show-on-scroll h-52 w-60 rounded-md object-fill object-center shadow"
+              class="js-show-on-scroll rounded-md object-fill object-center shadow"
               src="./src/img/wepoker.png"
             />
           </div>
 
           <div>
             <img
-              class="js-show-on-scroll h-60 w-60 rounded-md object-fill object-center shadow md:h-52"
+              class="js-show-on-scroll rounded-md object-fill object-center shadow"
               src="./src/img/xpoker.png"
             />
           </div>

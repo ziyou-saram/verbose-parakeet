@@ -775,12 +775,12 @@ a {
   height: 13rem;
 }
 
-.h-60 {
-  height: 15rem;
-}
-
 .h-10 {
   height: 2.5rem;
+}
+
+.h-14 {
+  height: 3.5rem;
 }
 
 .w-36 {
@@ -801,10 +801,6 @@ a {
 
 .w-full {
   width: 100%;
-}
-
-.w-60 {
-  width: 15rem;
 }
 
 .w-16 {
@@ -831,6 +827,10 @@ a {
   width: 11rem;
 }
 
+.w-14 {
+  width: 3.5rem;
+}
+
 .max-w-screen-xl {
   max-width: 1280px;
 }
@@ -849,6 +849,10 @@ a {
 
 .max-w-4xl {
   max-width: 56rem;
+}
+
+.max-w-screen-2xl {
+  max-width: 1536px;
 }
 
 .flex-shrink-0 {
@@ -1220,6 +1224,11 @@ a {
   line-height: 2rem;
 }
 
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
 .font-semibold {
   font-weight: 600;
 }
@@ -1359,12 +1368,12 @@ a {
   transition-duration: 150ms;
 }
 
-.ease-out {
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-}
-
 .ease-in {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+
+.ease-out {
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
 .ease-in-out {
@@ -1506,16 +1515,16 @@ a {
     display: none;
   }
 
-  .md\:h-52 {
-    height: 13rem;
-  }
-
   .md\:w-1\/2 {
     width: 50%;
   }
 
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
   .md\:flex-row {
@@ -1592,6 +1601,10 @@ a {
     display: flex;
   }
 
+  .lg\:hidden {
+    display: none;
+  }
+
   .lg\:w-1\/2 {
     width: 50%;
   }
@@ -1612,6 +1625,14 @@ a {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .lg\:flex-row {
+    flex-direction: row;
+  }
+
+  .lg\:justify-end {
+    justify-content: flex-end;
+  }
+
   .lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -1621,11 +1642,23 @@ a {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+
+  .lg\:pb-0 {
+    padding-bottom: 0px;
+  }
 }
 
 @media (min-width: 1280px) {
   .xl\:mt-12 {
     margin-top: 3rem;
+  }
+
+  .xl\:flex {
+    display: flex;
+  }
+
+  .xl\:hidden {
+    display: none;
   }
 
   .xl\:w-1\/2 {
@@ -1636,8 +1669,33 @@ a {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .xl\:flex-row {
+    flex-direction: row;
+  }
+
+  .xl\:items-center {
+    align-items: center;
+  }
+
+  .xl\:justify-end {
+    justify-content: flex-end;
+  }
+
+  .xl\:justify-around {
+    justify-content: space-around;
+  }
+
   .xl\:gap-12 {
     gap: 3rem;
+  }
+
+  .xl\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .xl\:pb-0 {
+    padding-bottom: 0px;
   }
 }
 

@@ -23,14 +23,14 @@
     <header class="bg-black" x-data="{ isOpen: false }">
       <div
         x-data="{ open: false }"
-        class="mx-auto flex max-w-screen-xl lg:max-w-screen-2xl flex-col px-4 md:flex-row md:items-center md:justify-around md:px-6 lg:px-8"
+        class="mx-auto flex max-w-screen-xl lg:max-w-screen-2xl flex-col px-4 xl:flex-row xl:items-center xl:justify-around xl:px-6 lg:px-8"
       >
         <div class="flex flex-row items-center justify-between p-8">
           <a href="#" class="h-16 w-36">
             <img src="./src/img/aiLogo.png" alt="" />
           </a>
           <button
-            class="focus:shadow-outline rounded-lg text-white focus:outline-none md:hidden"
+            class="focus:shadow-outline rounded-lg text-white focus:outline-none xl:hidden"
             @click="open = !open"
           >
             <svg fill="currentColor" viewBox="0 0 20 20" class="h-6 w-6">
@@ -52,7 +52,7 @@
         <!--Navbar-->
         <nav
           :class="{'flex': open, 'hidden': !open}"
-          class="hidden flex-grow flex-col pb-4 md:flex md:flex-row md:justify-end md:pb-0 items-center"
+          class="hidden flex-grow flex-col pb-4 xl:flex xl:flex-row xl:justify-end xl:pb-0 items-center"
         >
           <a
             class="focus:shadow-outline md:text-md mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 hover:text-slate-50 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
@@ -60,12 +60,12 @@
             >About AI</a
           >
           <a
-            class="focus:shadow-outline md::text-md mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 hover:text-slate-50 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
+            class="focus:shadow-outline md:text-md mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 hover:text-slate-50 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
             href="#video"
             >Video</a
           >
           <a
-            class="focus:shadow-outline md::text-md mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 hover:text-slate-50 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
+            class="focus:shadow-outline md:text-md mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 hover:text-slate-50 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
             href="#install"
             >Install</a
           >
@@ -75,18 +75,18 @@
             >Platforms</a
           >
           <a
-            class="focus:shadow-outline md::text-md mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 hover:text-slate-50 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
+            class="focus:shadow-outline md:text-md mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 hover:text-slate-50 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
             href="#products"
             >Our Products</a
           >
           <a
-            class="focus:shadow-outline md::text-md mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 hover:text-slate-50 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
+            class="focus:shadow-outline md:text-md mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 hover:text-slate-50 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
             href="#contacts"
             >Contact Us</a
           >
           <div class="flex flex-row">
             <a
-              class="focus:shadow-outline md::text-md mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 hover:text-slate-50 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
+              class="focus:shadow-outline md:text-md mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 hover:text-slate-50 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
               href="cn_index.html"
             >
               <svg
@@ -162,7 +162,7 @@
       </div>
 
       <section class="relative bg-black">
-        <div class="js-show-on-scroll mx-auto max-w-5xl px-0 py-16">
+        <div class="js-show-on-scroll mx-auto max-w-5xl px-10 py-16">
           <div class="keet-row items-center md:flex md:space-x-6">
             <div class="delay-1500 md:w-1/2">
               <h1
@@ -326,7 +326,7 @@
           How to Install
         </h1>
         <div
-          class="js-show-on-scroll mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-12 xl:grid-cols-3 xl:gap-12"
+          class="js-show-on-scroll mt-8 grid grid-cols-1 gap-8 md:grid-cols-1 xl:mt-12 xl:grid-cols-3 xl:gap-12"
         >
           <div
             class="space-y-3 rounded-xl border-2 border-blue-400 bg-zinc-900 p-8"
@@ -410,8 +410,8 @@
 
     <!--Rooms-->
     <section class="bg-black" id="platforms">
-      <div class="mx-auto my-32 max-w-5xl px-6 py-16 text-center">
-        <h2 class="title text-3xl font-semibold text-slate-50 md:text-5xl">
+      <div class="mx-auto my-32 max-w-4xl px-6 py-16 text-center">
+        <h2 class="title text-5xl font-semibold text-slate-50 md:text-5xl">
           Rooms
         </h2>
         <div
@@ -419,21 +419,21 @@
         >
           <div>
             <img
-              class="js-show-on-scroll h-52 w-60 rounded-md object-fill object-center shadow"
+              class="js-show-on-scroll rounded-md object-fill object-center shadow"
               src="./src/img/hhpoker.png"
             />
           </div>
 
           <div>
             <img
-              class="js-show-on-scroll h-52 w-60 rounded-md object-fill object-center shadow"
+              class="js-show-on-scroll rounded-md object-fill object-center shadow"
               src="./src/img/wepoker.png"
             />
           </div>
 
           <div>
             <img
-              class="js-show-on-scroll h-60 w-60 rounded-md object-fill object-center shadow md:h-52"
+              class="js-show-on-scroll rounded-md object-fill object-center shadow"
               src="./src/img/xpoker.png"
             />
           </div>
