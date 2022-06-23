@@ -22,11 +22,11 @@
     <header class="bg-black" x-data="{ isOpen: false }">
       <div
         x-data="{ open: false }"
-        class="mx-auto flex max-w-screen-xl flex-col px-4 md:flex-row md:items-center md:justify-between md:px-6 lg:px-8"
+        class="mx-auto flex max-w-screen-xl lg:max-w-screen-2xl flex-col px-4 md:flex-row md:items-center md:justify-around md:px-6 lg:px-8"
       >
         <div class="flex flex-row items-center justify-between p-8">
           <a href="#" class="h-16 w-36">
-            <img src="/src/img/aiLogo.png" alt="" />
+            <img src="./src/img/aiLogo.png" alt="" />
           </a>
           <button
             class="focus:shadow-outline rounded-lg text-white focus:outline-none md:hidden"
@@ -81,7 +81,7 @@
           <a
             class="focus:shadow-outline md::text-md mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 hover:text-slate-50 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
             href="#contacts"
-            >Contacts</a
+            >Contact Us</a
           >
           <div class="flex flex-row">
             <a
@@ -183,7 +183,7 @@
                   href="#contacts"
                   class="ml-2 block flex w-40 items-center justify-center rounded-sm border border-purple-800 py-4 px-6 font-bold text-purple-500 hover:border-purple-900 hover:bg-purple-900 hover:text-slate-50"
                 >
-                  Contacts
+                  Contact us
                 </a>
               </div>
             </div>
@@ -194,7 +194,7 @@
                   <img
                     class="w-full object-cover object-center"
                     style="height: 600px"
-                    src="/src/img/bot.png"
+                    src="./src/img/bot.png"
                   />
                 </div>
               </div>
@@ -288,10 +288,11 @@
 
     <!--Game Demonstration-->
     <section
-      class="bg-cover bg-fixed"
+      class="bg-cover bg-fixed object-fill"
       style="
         background-image: url('https://images.unsplash.com/photo-1561034646-e37eb9c48abd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
         height: auto;
+        width: 100%;
       "
       id="video"
     >
@@ -302,12 +303,12 @@
           </h2>
         </div>
 
-        <div class="aspect-w-16 aspect-h-9 mt-8 rounded-md">
+        <div class="aspect-w-16 aspect-h-9 mt-8 rounded-lg">
           <video
-            class="rounded-lg"
             controls
             preload="none"
             poster="src/img/poster.png"
+            class="object-fill rounded-lg"
           >
             <source src="/src/video/english.mp4" type="video/mp4" />
           </video>
@@ -448,9 +449,11 @@
 
     <!--Price List-->
     <section
-      class="bg-fixed object-cover object-center"
+      class="bg-cover bg-fixed object-fill"
       style="
         background-image: url('https://images.unsplash.com/photo-1561034646-e37eb9c48abd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
+        height: auto;
+        width: 100%;
       "
     >
       <div class="mx-auto my-32 max-w-5xl px-6 py-32">
@@ -532,7 +535,7 @@
         >
           Products
         </h2>
-        <div class="grid grid-cols-2 gap-4 py-8 md:grid-cols-2">
+        <div class="grid grid-cols-2 gap-4 py-8 md:grid-cols-2 items-center">
           <a href="https://pokerbotai.com" target="_blank">
             <div
               class="js-show-on-scroll col-span-1 flex items-center justify-center p-6 md:col-span-2 lg:col-span-1"
@@ -540,21 +543,25 @@
               <img src="./src/img/dev1.svg" alt="" />
             </div>
           </a>
-          <div
-            class="js-show-on-scroll col-span-1 flex items-center justify-center p-6 md:col-span-2 lg:col-span-1"
-          >
-            <img src="./src/img/dev2.svg" alt="" />
-          </div>
+          <a href="https://ecopokerbot.com" target="_blank">
+            <div
+              class="js-show-on-scroll col-span-1 flex items-center justify-center p-6 md:col-span-2 lg:col-span-1"
+            >
+              <img src="./src/img/dev2.svg" alt="" />
+            </div>
+          </a>
         </div>
       </div>
     </section>
 
     <!--Contacts-->
     <section
-      class="relative mt-20 bg-fixed"
+      class="relative mt-20 bg-cover bg-fixed object-fill"
       id="contacts"
       style="
         background-image: url('https://images.unsplash.com/photo-1561034646-e37eb9c48abd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
+        height: auto;
+        width: 100%;
       "
     >
       <section>
@@ -563,7 +570,7 @@
             class="flex max-w-5xl items-center justify-center rounded-md bg-zinc-900 px-10 pt-10 pb-12"
           >
             <div class="glassmorph-container">
-              <a href="https://t.me/thepok3ragent">
+              <a href="https://t.me/iOSGoliath" target="_blank">
                 <div class="flex flex-row items-center space-x-4 py-6">
                   <div class="text-white">
                     <img
@@ -575,7 +582,7 @@
                   <div
                     class="font-montserrat text-3xl font-semibold text-white"
                   >
-                    @thepok3ragent
+                    @IOSGOLIATH
                   </div>
                 </div>
               </a>
@@ -616,11 +623,12 @@
                 x-transition:leave="transition ease-in duration-75"
                 x-transition:leave-start="transform opacity-100 scale-100"
                 x-transition:leave-end="transform opacity-0 scale-95"
-                class="absolute bottom-0 right-0 mt-2 mr-8 w-56 origin-top-right rounded-md shadow-lg"
+                class="absolute bottom-0 right-0 mt-2 mr-8 w-56 2xl:w-96 origin-top-right rounded-md shadow-lg"
               >
                 <div class="shadow-xs relative rounded-md bg-zinc-900 py-1">
                   <a
-                    href="https://t.me/thepok3ragent"
+                    href="https://t.me/iOSGoliath"
+                    target="_blank"
                     class="block px-4 py-2 text-sm text-gray-700 transition duration-150 ease-in-out hover:bg-zinc-800"
                   >
                     <div class="flex flex-row items-center space-x-2">
@@ -634,7 +642,7 @@
                       <div
                         class="font-montserrat text-sm font-semibold text-white"
                       >
-                        @thepok3ragent
+                        @IOSGOLIATH
                       </div>
                     </div></a
                   >
@@ -665,7 +673,7 @@
                 @click="open = !open"
                 class="focus:shadow-solid flex max-w-xs items-center justify-center rounded-full border-2 text-sm text-white transition duration-150 ease-in-out focus:outline-none"
               >
-                <img class="w-12" src="./src/img/buuble.png" alt="" />
+                <img class="w-12 2xl:w-24" src="./src/img/buuble.png" alt="" />
               </button>
             </div>
           </div>
